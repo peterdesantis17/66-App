@@ -7,19 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D00CD4AC2D5143B700ECBBFA /* LastResetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00CD4AB2D5143B700ECBBFA /* LastResetManager.swift */; };
 		D025B8722D501420002F33BC /* _6_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025B8712D501420002F33BC /* _6_AppApp.swift */; };
 		D025B8742D501420002F33BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025B8732D501420002F33BC /* ContentView.swift */; };
 		D025B8762D501422002F33BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D025B8752D501422002F33BC /* Assets.xcassets */; };
-		D025B87A2D501422002F33BC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D025B8792D501422002F33BC /* Preview Assets.xcassets */; };
+		D025B8822D501554002F33BC /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = D025B8812D501554002F33BC /* Auth */; };
+		D025B8842D501554002F33BC /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = D025B8832D501554002F33BC /* Functions */; };
+		D025B8862D501554002F33BC /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = D025B8852D501554002F33BC /* PostgREST */; };
+		D025B8882D501554002F33BC /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = D025B8872D501554002F33BC /* Realtime */; };
+		D025B88A2D501554002F33BC /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = D025B8892D501554002F33BC /* Storage */; };
+		D025B88C2D501554002F33BC /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = D025B88B2D501554002F33BC /* Supabase */; };
+		D025B8932D50168C002F33BC /* SupabaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025B88D2D50168C002F33BC /* SupabaseClient.swift */; };
+		D025B8942D50168C002F33BC /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025B88E2D50168C002F33BC /* AuthManager.swift */; };
+		D025B8952D50168C002F33BC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025B88F2D50168C002F33BC /* LoginView.swift */; };
+		D025B8962D50168C002F33BC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D025B8902D50168C002F33BC /* Preview Assets.xcassets */; };
+		D025B89A2D501AEA002F33BC /* GoTrue in Frameworks */ = {isa = PBXBuildFile; productRef = D025B8992D501AEA002F33BC /* GoTrue */; };
+		D025B89C2D501F4E002F33BC /* HabitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025B89B2D501F4E002F33BC /* HabitService.swift */; };
+		D025B89E2D5041DD002F33BC /* ProgressRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025B89D2D5041DD002F33BC /* ProgressRingView.swift */; };
+		D025B8A02D504957002F33BC /* CompletionHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025B89F2D504957002F33BC /* CompletionHistory.swift */; };
+		D025B8A32D504D50002F33BC /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025B8A12D504D4F002F33BC /* HistoryView.swift */; };
+		D025B8A42D504D50002F33BC /* HabitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025B8A22D504D4F002F33BC /* HabitsView.swift */; };
+		D025B8A62D504D59002F33BC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025B8A52D504D59002F33BC /* SettingsView.swift */; };
+		D025B8A82D505123002F33BC /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025B8A72D505123002F33BC /* CalendarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D00CD4AB2D5143B700ECBBFA /* LastResetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastResetManager.swift; sourceTree = "<group>"; };
 		D025B86E2D501420002F33BC /* 66 App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "66 App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D025B8712D501420002F33BC /* _6_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _6_AppApp.swift; sourceTree = "<group>"; };
 		D025B8732D501420002F33BC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D025B8752D501422002F33BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D025B8772D501422002F33BC /* _6_App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = _6_App.entitlements; sourceTree = "<group>"; };
 		D025B8792D501422002F33BC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D025B88D2D50168C002F33BC /* SupabaseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupabaseClient.swift; sourceTree = "<group>"; };
+		D025B88E2D50168C002F33BC /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		D025B88F2D50168C002F33BC /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		D025B8902D50168C002F33BC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D025B8922D50168C002F33BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D025B89B2D501F4E002F33BC /* HabitService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HabitService.swift; sourceTree = "<group>"; };
+		D025B89D2D5041DD002F33BC /* ProgressRingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressRingView.swift; sourceTree = "<group>"; };
+		D025B89F2D504957002F33BC /* CompletionHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletionHistory.swift; sourceTree = "<group>"; };
+		D025B8A12D504D4F002F33BC /* HistoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		D025B8A22D504D4F002F33BC /* HabitsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HabitsView.swift; sourceTree = "<group>"; };
+		D025B8A52D504D59002F33BC /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D025B8A72D505123002F33BC /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +58,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D025B8862D501554002F33BC /* PostgREST in Frameworks */,
+				D025B8842D501554002F33BC /* Functions in Frameworks */,
+				D025B88C2D501554002F33BC /* Supabase in Frameworks */,
+				D025B8822D501554002F33BC /* Auth in Frameworks */,
+				D025B88A2D501554002F33BC /* Storage in Frameworks */,
+				D025B8882D501554002F33BC /* Realtime in Frameworks */,
+				D025B89A2D501AEA002F33BC /* GoTrue in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +90,19 @@
 		D025B8702D501420002F33BC /* 66 App */ = {
 			isa = PBXGroup;
 			children = (
+				D00CD4AB2D5143B700ECBBFA /* LastResetManager.swift */,
+				D025B8A72D505123002F33BC /* CalendarView.swift */,
+				D025B8A52D504D59002F33BC /* SettingsView.swift */,
+				D025B8A22D504D4F002F33BC /* HabitsView.swift */,
+				D025B8A12D504D4F002F33BC /* HistoryView.swift */,
+				D025B89F2D504957002F33BC /* CompletionHistory.swift */,
+				D025B89D2D5041DD002F33BC /* ProgressRingView.swift */,
+				D025B89B2D501F4E002F33BC /* HabitService.swift */,
+				D025B8922D50168C002F33BC /* Assets.xcassets */,
+				D025B88E2D50168C002F33BC /* AuthManager.swift */,
+				D025B88F2D50168C002F33BC /* LoginView.swift */,
+				D025B8912D50168C002F33BC /* Preview Content */,
+				D025B88D2D50168C002F33BC /* SupabaseClient.swift */,
 				D025B8712D501420002F33BC /* _6_AppApp.swift */,
 				D025B8732D501420002F33BC /* ContentView.swift */,
 				D025B8752D501422002F33BC /* Assets.xcassets */,
@@ -65,6 +116,14 @@
 			isa = PBXGroup;
 			children = (
 				D025B8792D501422002F33BC /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D025B8912D50168C002F33BC /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D025B8902D50168C002F33BC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -85,6 +144,15 @@
 			dependencies = (
 			);
 			name = "66 App";
+			packageProductDependencies = (
+				D025B8812D501554002F33BC /* Auth */,
+				D025B8832D501554002F33BC /* Functions */,
+				D025B8852D501554002F33BC /* PostgREST */,
+				D025B8872D501554002F33BC /* Realtime */,
+				D025B8892D501554002F33BC /* Storage */,
+				D025B88B2D501554002F33BC /* Supabase */,
+				D025B8992D501AEA002F33BC /* GoTrue */,
+			);
 			productName = "66 App";
 			productReference = D025B86E2D501420002F33BC /* 66 App.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +181,10 @@
 				Base,
 			);
 			mainGroup = D025B8652D501420002F33BC;
+			packageReferences = (
+				D025B8802D501554002F33BC /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				D025B8982D501AEA002F33BC /* XCRemoteSwiftPackageReference "gotrue-swift" */,
+			);
 			productRefGroup = D025B86F2D501420002F33BC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,7 +199,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D025B87A2D501422002F33BC /* Preview Assets.xcassets in Resources */,
+				D025B8962D50168C002F33BC /* Preview Assets.xcassets in Resources */,
 				D025B8762D501422002F33BC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,8 +211,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D025B89E2D5041DD002F33BC /* ProgressRingView.swift in Sources */,
 				D025B8742D501420002F33BC /* ContentView.swift in Sources */,
+				D025B8A82D505123002F33BC /* CalendarView.swift in Sources */,
+				D025B8942D50168C002F33BC /* AuthManager.swift in Sources */,
+				D025B8A42D504D50002F33BC /* HabitsView.swift in Sources */,
+				D025B89C2D501F4E002F33BC /* HabitService.swift in Sources */,
+				D025B8932D50168C002F33BC /* SupabaseClient.swift in Sources */,
+				D025B8952D50168C002F33BC /* LoginView.swift in Sources */,
+				D025B8A02D504957002F33BC /* CompletionHistory.swift in Sources */,
+				D00CD4AC2D5143B700ECBBFA /* LastResetManager.swift in Sources */,
+				D025B8A32D504D50002F33BC /* HistoryView.swift in Sources */,
 				D025B8722D501420002F33BC /* _6_AppApp.swift in Sources */,
+				D025B8A62D504D59002F33BC /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +442,63 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D025B8802D501554002F33BC /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase-community/supabase-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
+		D025B8982D501AEA002F33BC /* XCRemoteSwiftPackageReference "gotrue-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/gotrue-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D025B8812D501554002F33BC /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D025B8802D501554002F33BC /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Auth;
+		};
+		D025B8832D501554002F33BC /* Functions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D025B8802D501554002F33BC /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Functions;
+		};
+		D025B8852D501554002F33BC /* PostgREST */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D025B8802D501554002F33BC /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = PostgREST;
+		};
+		D025B8872D501554002F33BC /* Realtime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D025B8802D501554002F33BC /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Realtime;
+		};
+		D025B8892D501554002F33BC /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D025B8802D501554002F33BC /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Storage;
+		};
+		D025B88B2D501554002F33BC /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D025B8802D501554002F33BC /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+		D025B8992D501AEA002F33BC /* GoTrue */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D025B8982D501AEA002F33BC /* XCRemoteSwiftPackageReference "gotrue-swift" */;
+			productName = GoTrue;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D025B8662D501420002F33BC /* Project object */;
 }
