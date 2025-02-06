@@ -25,9 +25,15 @@ class HabitService: ObservableObject {
             print("📅 CHECK NEW DAY")
             print("📅 Today's date: \(today)")
             print("📅 Last opened: \(lastOpened)")
+            print("📅 Raw current date: \(Date())")
             
             if today > lastOpened {
+                print("🔄 NEW DAY(S) DETECTED - Refreshing session")
+                // Force a new session when date changes
+                try await supabase.auth.refreshSession()
+                
                 print("🔄 NEW DAY(S) DETECTED")
+                print("📅 Days difference: \(Calendar.current.dateComponents([.day], from: lastOpened, to: today).day ?? 0)")
                 
                 // Save last opened day's progress
                 print("💾 Saving progress for last opened date: \(lastOpened)")
@@ -53,26 +59,69 @@ class HabitService: ObservableObject {
             print("📅 Updated last opened date to: \(today)")
             
         } catch {
-            print("❌ Error in checkNewDay: \(error)")
+            print("❌ CheckNewDay error: \(error)")
+            print("❌ Error type: \(type(of: error))")
             self.error = error.localizedDescription
         }
     }
     
     // Fetch all habits for current user
     func fetchHabits() async throws {
-        let query = supabase
-            .from("habits")
-            .select()
-        
-        let habits: [Habit] = try await query.execute().value
-        self.habits = habits
+        let fetchStartTime = Date()
+        print("📱 HabitService: Fetching habits at \(fetchStartTime)")
+        do {
+            print("🔐 HabitService: Getting session...")
+            let supabaseClient = supabase // Get reference to avoid multiple accesses
+            print("🔧 HabitService: Using Supabase client")
+            let session = try await supabaseClient.auth.session
+            let userId = session.user.id
+            print("✅ HabitService: Got session for user \(userId)")
+            print("🔐 HabitService: Token - \(session.accessToken.prefix(20))...")
+            
+            let query = supabaseClient  // Use same client instance
+                .from("habits")
+                .select()
+                .eq("user_id", value: userId)
+            
+            print("🔄 HabitService: Executing query...")
+            let queryStartTime = Date()
+            let response: PostgrestResponse<[Habit]> = try await query.execute()
+            let queryDuration = Date().timeIntervalSince(queryStartTime)
+            print("📥 HabitService: Response received after \(String(format: "%.2f", queryDuration))s")
+            print("📥 HabitService: Response status - \(response.status)")
+            
+            if response.status == 200 {
+                let habits = try response.value
+                print("📱 HabitService: Decoded \(habits.count) habits")
+                if habits.isEmpty {
+                    print("⚠️ HabitService: Warning - Got 0 habits despite successful response")
+                }
+                self.habits = habits
+            } else {
+                print("❌ HabitService: Unexpected status code: \(response.status)")
+                throw NSError(domain: "HabitService", code: response.status, userInfo: nil)
+            }
+            
+            let totalDuration = Date().timeIntervalSince(fetchStartTime)
+            print("⏱️ HabitService: Total fetch duration: \(String(format: "%.2f", totalDuration))s")
+        } catch {
+            print("❌ HabitService: Fetch error - \(error)")
+            print("❌ HabitService: Error type - \(type(of: error))")
+            print("❌ HabitService: Full error details - \(String(describing: error))")
+            throw error
+        }
     }
     
     // Create a new habit
     func createHabit(title: String) async throws {
+        print("📱 HabitService: Creating new habit - '\(title)'")
         do {
-            let userId = try await supabase.auth.session.user.id
-            print("Got user ID: \(userId)")
+            let session = try await supabase.auth.session
+            print("🔐 HabitService: Session state - \(session.accessToken)")
+            print("👤 HabitService: User ID - \(session.user.id)")
+            
+            let userId = session.user.id
+            print("👤 HabitService: User ID - \(userId)")
             
             let habit = Habit(
                 id: UUID(),
@@ -81,18 +130,18 @@ class HabitService: ObservableObject {
                 isCompleted: false,
                 createdAt: Date()
             )
-            print("Created habit object: \(habit)")
             
             try await supabase
                 .from("habits")
                 .insert(habit)
                 .execute()
-            print("Successfully inserted habit")
+            print("✅ HabitService: Habit created successfully")
             
             try await fetchHabits()
         } catch {
-            print("Error creating habit: \(error)")
-            self.error = error.localizedDescription
+            print("❌ HabitService: Create error - \(error)")
+            print("❌ HabitService: Error type - \(type(of: error))")
+            print("❌ HabitService: Full error details - \(String(describing: error))")
             throw error
         }
     }
@@ -219,25 +268,19 @@ class HabitService: ObservableObject {
         let calendar = Calendar.current
         let userId = try await supabase.auth.session.user.id
         
-        // Get start and end of month
         guard let monthInterval = calendar.dateInterval(of: .month, for: date) else {
             return []
         }
-        
-        print("📊 Fetching completion history")
-        print("📅 From: \(monthInterval.start)")
-        print("📅 To: \(monthInterval.end)")
         
         let histories: [CompletionHistory] = try await supabase
             .from("completion_history")
             .select()
             .eq("user_id", value: userId)
-            .gte("date", value: monthInterval.start)  // Greater than or equal to start
-            .lt("date", value: monthInterval.end)     // Less than end
+            .gte("date", value: monthInterval.start)
+            .lt("date", value: monthInterval.end)
             .execute()
             .value
         
-        print("📊 Found \(histories.count) history entries")
         return histories
     }
 } 

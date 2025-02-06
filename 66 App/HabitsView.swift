@@ -5,6 +5,7 @@ struct HabitsView: View {
     @State private var showingAddHabit = false
     @State private var isLoading = false
     @State private var showError = false
+    @State private var requestId = 0  // Add this to track requests
     
     var body: some View {
         NavigationView {
@@ -36,7 +37,7 @@ struct HabitsView: View {
                         }
                     }
                     .refreshable {
-                        await loadHabits()
+                        await loadHabits(requestId: requestId)
                     }
                     
                     Button(action: {
@@ -68,16 +69,37 @@ struct HabitsView: View {
             }
         }
         .task {
-            await loadHabits()
+            let currentRequest = requestId
+            print("🔄 HabitsView[\(currentRequest)]: Task started")
+            await loadHabits(requestId: currentRequest)
+        }
+        .onAppear {
+            print("👀 HabitsView: onAppear")
+            requestId += 1  // Increment request ID
+        }
+        .onDisappear {
+            print("👻 HabitsView: onDisappear")
         }
     }
     
-    private func loadHabits() async {
+    private func loadHabits(requestId: Int) async {
+        print("📱 HabitsView[\(requestId)]: Starting load")
         isLoading = true
         do {
+            print("⏳ HabitsView[\(requestId)]: Before fetch")
             try await habitService.fetchHabits()
+            if requestId == self.requestId {  // Only update if this is the latest request
+                print("✅ HabitsView[\(requestId)]: Load completed successfully")
+            } else {
+                print("⚠️ HabitsView[\(requestId)]: Load completed but request is stale")
+            }
         } catch {
-            showError = true
+            print("❌ HabitsView[\(requestId)]: Load error - \(error)")
+            if requestId == self.requestId {
+                showError = true
+            } else {
+                print("⚠️ HabitsView[\(requestId)]: Error ignored as request is stale")
+            }
         }
         isLoading = false
     }

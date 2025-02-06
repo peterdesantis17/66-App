@@ -35,9 +35,6 @@ struct CompletionHistory: Codable {
         let dateString = try container.decode(String.self, forKey: .date)
         let createdAtString = try container.decode(String.self, forKey: .createdAt)
         
-        print("📅 Received date string: \(dateString)")
-        print("📅 Received createdAt string: \(createdAtString)")
-        
         // For simple date (YYYY-MM-DD)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"

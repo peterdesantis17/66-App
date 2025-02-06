@@ -15,12 +15,14 @@ class AuthManager: ObservableObject {
         // Check for existing session
         Task {
             do {
+                print("🔐 AuthManager: Initializing...")
                 currentUser = try await supabase.auth.session.user
-                print("Auth init - Current user: \(String(describing: currentUser))")
-                print("Auth init - Session: \(try await supabase.auth.session)")
+                print("🔐 AuthManager: Current user state - \(String(describing: currentUser?.email))")
+                print("🔐 AuthManager: Session state - \(try await supabase.auth.session.accessToken)")
                 isAuthenticated = currentUser != nil
+                print("🔐 AuthManager: Authentication state - \(isAuthenticated)")
             } catch {
-                print("Auth init error: \(error)")
+                print("❌ AuthManager: Init error - \(error)")
                 errorMessage = error.localizedDescription
             }
         }

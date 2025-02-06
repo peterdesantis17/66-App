@@ -11,7 +11,7 @@ struct CalendarView: View {
     
     // Color for completion percentage
     private func colorForCompletion(_ completion: Double) -> Color {
-        let color = switch completion {
+        switch completion {
         case 0:
             Color.clear
         case 0..<0.5:
@@ -21,8 +21,6 @@ struct CalendarView: View {
         default:
             Color.blue.opacity(0.9)
         }
-        print("🎨 Color for completion \(completion * 100)%: \(color)")
-        return color
     }
     
     private var currentMonth: Date {
@@ -120,17 +118,13 @@ struct CalendarView: View {
     private func loadCompletionHistory() async {
         do {
             let histories = try await habitService.getMonthCompletionHistory(for: displayedMonth)
-            print("📊 Loaded \(histories.count) history entries")
             
             completionHistory = Dictionary(uniqueKeysWithValues: histories.map { history in
                 let date = calendar.startOfDay(for: history.date)
-                print("📅 Mapping date: \(date), completion: \(history.completionPercentage)")
                 return (date, history.completionPercentage)
             })
-            
-            print("📊 Final completion history: \(completionHistory)")
         } catch {
-            print("❌ Error loading history: \(error)")
+            print("❌ Error loading completion history: \(error)")
         }
     }
     
